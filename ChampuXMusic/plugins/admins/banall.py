@@ -21,7 +21,7 @@ async def ban_all(_, msg):
             total_members += 1
 
         ok = await msg.reply_text(
-            f"Total members found: {total_members}\n**Started Banning..**"
+            f"ᴛᴏᴛᴀʟ ᴍᴇᴍʙᴇʀs ғᴏᴜɴᴅ: {total_members}\n**sᴛᴀʀᴛᴇᴅ ʙᴀɴɴɪɴɢ..**"
         )
 
         async for member in app.get_chat_members(chat_id):
@@ -32,17 +32,17 @@ async def ban_all(_, msg):
 
                     if banned_count % 5 == 0:
                         await ok.edit_text(
-                            f"Banned {banned_count} members out of {total_members}"
+                            f"ʙᴀɴɴᴇᴅ {banned_count} ᴍᴇᴍʙᴇʀs ᴏᴜᴛ ᴏғ {total_members}"
                         )
 
             except Exception as e:
                 pass
 
         await ok.edit_text(
-            f"Total banned: {banned_count}\nFailed bans: {total_members - banned_count}"
+            f"ᴛᴏᴛᴀʟ ʙᴀɴɴᴇᴅ: {banned_count}\nғᴀɪʟᴇᴅ ʙᴀɴs: {total_members - banned_count}"
         )
 
     else:
         await msg.reply_text(
-            "Either I don't have the right to restrict users or you are not in sudo users"
+            "ᴇɪᴛʜᴇʀ ɪ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ᴛʜᴇ ʀɪɢʜᴛ ᴛᴏ ʀᴇsᴛʀɪᴄᴛ ᴜsᴇʀs ᴏʀ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ɪɴ sᴜᴅᴏ ᴜsᴇʀs"
         )

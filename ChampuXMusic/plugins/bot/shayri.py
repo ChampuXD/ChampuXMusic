@@ -1,8 +1,15 @@
-import random
-
 from pyrogram import Client, filters
-
+import requests
+import random
+import os
+import re
+import asyncio
+import time
 from ChampuXMusic import app
+from time import time
+import asyncio
+import config
+from ChampuXMusic.utils.extraction import extract_user
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
@@ -11,7 +18,7 @@ user_command_count = {}
 SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 SHAYRI = [
     " 🌺**बहुत अच्छा लगता है तुझे सताना और फिर प्यार से तुझे मनाना।**🌺 \n\n**🥀Bahut aacha lagta hai tujhe satana Aur fir pyar se tujhe manana.🥀** ",
@@ -56,7 +63,7 @@ SHAYRI = [
 ]
 
 # Command
-SHAYRI_COMMAND = ["gf", "bf", "shayri", "sari", "shari", "love"]
+SHAYRI_COMMAND = ["shayri"]
 
 
 @app.on_message(filters.command(SHAYRI_COMMAND) & filters.group)
@@ -67,10 +74,10 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "✨𝚂𝚄𝙿𝙿𝙾𝚁𝚃✨", url=f"https://t.me/TG_FRIENDSS"
+                        " sᴜᴘᴘᴏʀᴛ ", url=config.SUPPORT_CHAT
                     ),
                     InlineKeyboardButton(
-                        "✨𝙾𝙵𝙵𝙸𝙲𝙴✨", url=f"https://t.me/Champu_CREATORS"
+                        " ᴄʜᴧᴍᴘᴜ ", url=f"https://t.me/TheChampu"
                     ),
                 ]
             ]
@@ -86,10 +93,10 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "✨𝚂𝚄𝙿𝙿𝙾𝚁𝚃✨", url=f"https://t.me/TG_FRIENDSS"
+                        " sᴜᴘᴘᴏʀᴛ ", url=config.SUPPORT_CHAT
                     ),
                     InlineKeyboardButton(
-                        "✨𝙾𝙵𝙵𝙸𝙲𝙴✨", url=f"https://t.me/Champu_CREATORS"
+                        " ᴄʜᴧᴍᴘᴜ ", url=f"https://t.me/TheChampu"
                     ),
                 ]
             ]
