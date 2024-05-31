@@ -9,8 +9,7 @@ from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
 import config
-from ChampuXMusic import app
-from ChampuXMusic import PH_ON
+from ChampuXMusic import app, PH_ON
 from ChampuXMusic.misc import _boot_
 from ChampuXMusic.utils import bot_up_time
 from ChampuXMusic.plugins.sudo.sudoers import sudoers_list
@@ -132,9 +131,8 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
-        OMFOO = random.choice(PH_ON)
         await message.reply_photo(
-            photo=OMFOO,
+            photo=PH_ON,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
@@ -173,9 +171,8 @@ async def start_gp(client, message: Message, _):
 
     out = start_panel(_)
     BOT_UP = await bot_up_time()
-    OMFOO = random.choice(PH_ON)
     await message.reply_photo(
-        photo=OMFOO,
+        photo=PH_ON,
         caption=_["start_1"].format(app.mention, BOT_UP),
         reply_markup=InlineKeyboardMarkup(out),
     )
