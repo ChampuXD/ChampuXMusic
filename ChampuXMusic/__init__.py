@@ -37,6 +37,7 @@ api = SafoneAPI()
 userbot = Userbot()
 
 
+
 from .platforms import *
 
 Apple = AppleAPI()
@@ -46,4 +47,3 @@ Spotify = SpotifyAPI()
 Resso = RessoAPI()
 Telegram = TeleAPI()
 YouTube = YouTubeAPI()
-APP = "tg_vc_bot"  # connect music api key "Dont change it"
