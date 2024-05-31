@@ -22,6 +22,7 @@ user_command_count = {}
 SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
+CHAMPU = ["https://telegra.ph/file/290eb1a06049fb0e0129c.jpg"]
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
@@ -51,7 +52,7 @@ async def helper_private(
         _ = get_string(language)
         keyboard = first_page(_)
         await update.reply_photo(
-            photo=START_IMG_URL,
+            photo=CHAMPU,
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )
@@ -95,7 +96,7 @@ async def helper_cb(client, CallbackQuery, _):
     if cb == "hb9":
         if CallbackQuery.from_user.id not in SUDOERS:
             return await CallbackQuery.answer(
-                "😎𝗣𝗔𝗛𝗟𝗘 𓆩𝗩𝗜𝗣𓆪 𝗞𝗢 𝗣𝗔𝗣𝗔 𝗕𝗢𝗟 𝗝𝗔𝗞𝗘 😆😆", show_alert=True
+                "ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ  @TheChampu", show_alert=True
             )
         else:
             await CallbackQuery.edit_message_text(helpers.HELP_9, reply_markup=keyboard)
