@@ -1,11 +1,11 @@
 import asyncio
 from time import time
 from typing import Union
-
+import random
 from pyrogram import filters, types
 from pyrogram.types import InlineKeyboardMarkup, Message
 
-from config import BANNED_USERS, START_IMG_URL, SUPPORT_CHAT
+from config import BANNED_USERS, SUPPORT_CHAT
 from strings import get_string, helpers
 from ChampuXMusic import app
 from ChampuXMusic.misc import SUDOERS
@@ -21,6 +21,11 @@ user_command_count = {}
 SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
+CHAMPU_PICS = [
+    "https://telegra.ph/file/3134ed3b57eb051b8c363.jpg",
+    "https://telegra.ph/file/5a2cbb9deb62ba4b122e4.jpg",
+    "https://telegra.ph/file/cb09d52a9555883eb0f61.jpg",
+]
 
 @app.on_message(filters.command(["help"]) & filters.private & ~BANNED_USERS)
 @app.on_callback_query(filters.regex("settings_back_helper") & ~BANNED_USERS)
@@ -49,8 +54,9 @@ async def helper_private(
         language = await get_lang(update.chat.id)
         _ = get_string(language)
         keyboard = first_page(_)
+        OWWO = random.choice(CHAMPU_PICS)
         await update.reply_photo(
-            photo=START_IMG_URL,
+            photo=OWWO,
             caption=_["help_1"].format(SUPPORT_CHAT),
             reply_markup=keyboard,
         )

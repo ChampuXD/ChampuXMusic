@@ -130,8 +130,9 @@ async def start_pm(client, message: Message, _):
                 )
     else:
         out = private_panel(_)
+        OWWO = random.choice(CHAMPU_PICS),
         await message.reply_photo(
-            photo=config.START_IMG_URL,
+            photo=OWWO,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
@@ -170,8 +171,9 @@ async def start_gp(client, message: Message, _):
 
     out = start_panel(_)
     BOT_UP = await bot_up_time()
+    OWWO = random.choice(CHAMPU_PICS),
     await message.reply_photo(
-        photo=config.START_IMG_URL,
+        photo=OWWO,
         caption=_["start_1"].format(app.mention, BOT_UP),
         reply_markup=InlineKeyboardMarkup(out),
     )
