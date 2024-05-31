@@ -26,7 +26,7 @@ HEYEMOJI = ["PPLAY_1",
             "PPLAY_16",
             "PPLAY_17"]
 
-PH_ON = ["START_IMG_URL"]
+PH_ON = ["https://telegra.ph/file/290eb1a06049fb0e0129c.jpg"]
 
 dirr()
 git()
