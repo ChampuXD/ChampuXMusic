@@ -16,7 +16,7 @@ from ChampuXMusic.utils.thumbnails import get_thumb
 @app.on_message(
     filters.command(
         ["skip", "cskip", "next", "cnext"],
-        prefixes=["/", "!", "%", "", ",", "@", "#"],
+        prefixes=["/", "!", "%", ",", "@", "#"],
     )
     & filters.group
     & ~BANNED_USERS

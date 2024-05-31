@@ -17,7 +17,7 @@ SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
 random_photo = [
-    "https://graph.org/file/4feb54222d1db2e3318cb.jpg",
+    "https://telegra.ph/file/ab33ea36f3c6d583575fd.jpg",
     "https://graph.org/file/97a58a8b3934fe6151399.jpg",
     "https://graph.org/file/d7224f80ca0c9eb1509fe.jpg",
     "https://graph.org/file/b68bb51a3ba3e25b233f8.jpg",
