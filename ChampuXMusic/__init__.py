@@ -26,6 +26,9 @@ HEYEMOJI = ["PPLAY_1",
             "PPLAY_16",
             "PPLAY_17"]
 
+PH_ON = ["START_IMG_URL",
+         "PING_IMG_URL",
+         "PLAYLIST_IMG_URL" ]
 
 dirr()
 git()
