@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import *
 
 from ChampuXMusic.misc import SUDOERS
-from ChampuXMusic.utils.Champu_ban import admin_filter
+from ChampuXMusic.utils.Champuban import admin_filter
 
 Champu_text = [
     "ʜᴇʏ ᴘʟᴇᴀsᴇ ᴅᴏɴ'ᴛ ᴅɪsᴛᴜʀʙ ᴍᴇ.",

@@ -5,7 +5,7 @@ from pyrogram.enums import ChatMemberStatus
 
 from ChampuXMusic.misc import SUDOERS
 from ChampuXMusic.utils.database import get_assistant
-from ChampuXMusic.utils.Champu_ban import admin_filter
+from ChampuXMusic.utils.Champuban import admin_filter
 
 links = {}
 

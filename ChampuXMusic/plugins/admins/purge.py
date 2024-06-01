@@ -6,7 +6,7 @@ from pyrogram.errors import MessageDeleteForbidden, RPCError
 from pyrogram.types import Message
 
 from ChampuXMusic import app
-from ChampuXMusic.utils.Champu_ban import admin_filter
+from ChampuXMusic.utils.Champuban import admin_filter
 
 
 @app.on_message(filters.command("purge") & admin_filter)
