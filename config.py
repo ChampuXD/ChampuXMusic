@@ -1,20 +1,17 @@
-import re
 import os
+import re
 from os import getenv
+
 from dotenv import load_dotenv
 from pyrogram import filters
 
 load_dotenv()
-
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
-
-#Put your bot's username
-BOT_USERNAME = getenv("BOT_USERNAME" , None)
 
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
@@ -28,7 +25,7 @@ LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1001423108989"))
 # Get this value from  on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID"))
 
-## Fill these variables if you're deploying on heroku.
+# Fill these variables if you're deploying on heroku.
 # Your heroku app name
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # Get it from http://dashboard.heroku.com/account
@@ -38,7 +35,7 @@ UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
     "https://github.com/ChampuXD/ChampuXMusic",
 )
-UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
+UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
@@ -49,9 +46,15 @@ SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/FenuZone")
 # Maximum Limit Allowed for users to save playlists on bot's server
 SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "100"))
 
-# MaximuM limit for fetching playlist's track from youtube, spotify, apple links.
+RADIO_URL = getenv("RADIO_URL", "http://peridot.streamguys.com:7150/Mirchi")
+
+# Don't fill here any YouTube link fill here any direct acessable audio link
+
+# MaximuM limit for fetching playlist's track from youtube, spotify, apple
+# links.
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "100"))
-# Set this to True if you want the assistant to automatically leave chats after an interval
+# Set this to True if you want the assistant to automatically leave chats
+# after an interval
 AUTO_LEAVING_ASSISTANT = False
 
 # Get this credentials from https://developer.spotify.com/dashboard
@@ -61,7 +64,8 @@ SPOTIFY_CLIENT_SECRET = getenv(
 )
 
 
-# Maximum limit for fetching playlist's track from youtube, spotify, apple links.
+# Maximum limit for fetching playlist's track from youtube, spotify, apple
+# links.
 PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 2500))
 
 
@@ -75,7 +79,8 @@ AUTO_SUGGESTION_TIME = int(
     getenv("AUTO_SUGGESTION_TIME", "3")
 )  # Remember to give value in Seconds
 
-# Set it True if you want to bot to suggest about bot commands to random chats of your bots.
+# Set it True if you want to bot to suggest about bot commands to random
+# chats of your bots.
 AUTO_SUGGESTION_MODE = getenv("AUTO_SUGGESTION_MODE", "True")
 # Cleanmode time after which bot will delete its old messages from chats
 CLEANMODE_DELETE_MINS = int(

@@ -1,5 +1,5 @@
 import logging
-import random
+
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import (
@@ -12,7 +12,7 @@ from pyrogram.types import Message
 
 from config import BANNED_USERS, adminlist
 from strings import get_string
-from ChampuXMusic import app, HEYEMOJI
+from ChampuXMusic import app
 from ChampuXMusic.misc import SUDOERS
 from ChampuXMusic.utils.database import (
     get_assistant,
@@ -148,9 +148,8 @@ async def radio(client, message: Message):
             channel = None
 
         video = None
-        OWWO = random.choice(HEYEMOJI)
         mystic = await message.reply_text(
-            _["play_2"].format(channel) if channel else _[OWWO]
+            _["play_2"].format(channel) if channel else _["play_1"]
         )
         try:
             await stream(
@@ -172,5 +171,5 @@ async def radio(client, message: Message):
     else:
         valid_stations = "\n".join([f"`{name}`" for name in RADIO_STATION.keys()])
         await message.reply(
-            f"**ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴍᴇ ᴀ sᴛᴀᴛɪᴏɴ ɴᴀᴍᴇ ᴀғᴛᴇʀ ᴄᴏᴍᴍᴀɴᴅ**\nɢɪᴠᴇɴ ʙᴇʟᴏᴡ ᴀᴠᴀɪʟᴀʙʟᴇ ʀᴀᴅɪᴏ sᴛᴀᴛɪᴏɴ... \n\n{valid_stations}"
+            f"**Please Provide Me a station name after command**\nGiven below available radio station... \n\n{valid_stations}"
         )

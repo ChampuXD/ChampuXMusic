@@ -8,26 +8,6 @@ from ChampuXMusic.misc import dbb, heroku
 
 from .logging import LOGGER
 
-HEYEMOJI = ["PPLAY_1",
-            "PPLAY_2",
-            "PPLAY_3",
-            "PPLAY_4",
-            "PPLAY_5",
-            "PPLAY_6",
-            "PPLAY_7",
-            "PPLAY_8",
-            "PPLAY_9",
-            "PPLAY_10",
-            "PPLAY_11",
-            "PPLAY_12",
-            "PPLAY_13",
-            "PPLAY_14",
-            "PPLAY_15",
-            "PPLAY_16",
-            "PPLAY_17"]
-
-PH_ON = ["https://telegra.ph/file/290eb1a06049fb0e0129c.jpg"]
-
 dirr()
 git()
 dbb()
@@ -36,7 +16,6 @@ heroku()
 app = Champu()
 api = SafoneAPI()
 userbot = Userbot()
-
 
 
 from .platforms import *
@@ -48,3 +27,4 @@ Spotify = SpotifyAPI()
 Resso = RessoAPI()
 Telegram = TeleAPI()
 YouTube = YouTubeAPI()
+APP = "TheChampuBot"  # connect music api key "Dont change it"

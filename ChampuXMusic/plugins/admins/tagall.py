@@ -158,7 +158,7 @@ VC_TAG = [
 ]
 
 
-@app.on_message(filters.command(["tagall"], prefixes=["/", "@", ".", "#"]))
+@app.on_message(filters.command(["tagall"], prefixes=["/", "@", "#"]))
 async def mentionall(client, message):
     chat_id = message.chat.id
     if message.chat.type == ChatType.PRIVATE:
@@ -228,7 +228,7 @@ async def mentionall(client, message):
         pass
 
 
-@app.on_message(filters.command(["vctag"], prefixes=["/", ".", "@", "#"]))
+@app.on_message(filters.command(["vctag"], prefixes=["/", "@", "#"]))
 async def mention_allvc(client, message):
     chat_id = message.chat.id
     if message.chat.type == ChatType.PRIVATE:

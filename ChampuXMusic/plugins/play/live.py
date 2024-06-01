@@ -3,7 +3,7 @@ import os
 from pyrogram import filters
 
 from config import BANNED_USERS
-from ChampuXMusic import YouTube, app, HEYEMOJI
+from ChampuXMusic import YouTube, app
 from ChampuXMusic.utils.channelplay import get_channeplayCB
 from ChampuXMusic.utils.decorators.language import languageCB
 from ChampuXMusic.utils.stream.stream import stream
@@ -31,9 +31,8 @@ async def play_live_stream(client, CallbackQuery, _):
         await CallbackQuery.answer()
     except:
         pass
-    OWWO = random.choice(HEYEMOJI)
     mystic = await CallbackQuery.message.reply_text(
-        _["play_2"].format(channel) if channel else _[OWWO]
+        _["play_2"].format(channel) if channel else _["play_1"]
     )
     try:
         details, track_id = await YouTube.track(vidid, True)

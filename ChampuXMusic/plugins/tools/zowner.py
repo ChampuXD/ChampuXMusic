@@ -1,15 +1,13 @@
 import asyncio
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from ChampuXMusic.misc import SUDOERS
+
+from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+
+import config
+from ChampuXMusic import app
 from ChampuXMusic.mongo.afkdb import LOGGERS as OWNERS
-from ChampuXMusic.core.userbot import Userbot
-from pyrogram import  filters
-from config import START_IMG_URL 
-from ChampuXMusic import app
-from ChampuXMusic.utils.database import get_assistant, add_served_chat, delete_served_chat
-from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from ChampuXMusic import app
+from ChampuXMusic.utils.database import add_served_chat, get_assistant
+
 
 start_txt = """**
 ✪ 𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗖𝗵𝗮𝗺𝗽𝘂 𝗥𝗲𝗽𝗼𝘀 ✪
@@ -45,16 +43,35 @@ async def start(_, msg):
               ],
               [
               InlineKeyboardButton("ᴍᴀɴᴀɢᴍᴇɴᴛ", url=f"https://github.com/ChampuXD/ChampuXManagment"),
-InlineKeyboardButton("ᴄʜᴀᴛʙᴏᴛ", url=f"https://github.com/ChampuXD/ChampuXChat"),
+InlineKeyboardButton("ᴄʜᴀᴛʙᴏᴛ", url=f"https://github.com/ChampuXD/ChatBot"),
 ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
     await msg.reply_photo(
-        photo=START_IMG_URL,
+        photo=config.START_IMG_URL,
         caption=start_txt,
         reply_markup=reply_markup
     )
+
+
+@app.on_message(filters.command("clone"))
+async def clones(client: Client, message: Message):
+    await message.reply_photo(
+        photo=config.START_IMG_URL,
+        caption=f"""**ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ sᴜᴅᴏ ᴜsᴇʀ sᴏ ʏᴏᴜ ᴀʀᴇ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ ᴛᴏ ᴄʟᴏɴᴇ ᴍᴇ.**\n**ᴄʟɪᴄᴋ ɢɪᴠᴇɴ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴀɴᴅ ʜᴏsᴛ ᴍᴀɴᴜᴀʟʟʏ ᴏᴛʜᴇʀᴡɪsᴇ ᴄᴏɴᴛᴀᴄᴛ ᴏᴡɴᴇʀ ᴏʀ sᴜᴅᴏ ᴜsᴇʀs ғᴏʀ ᴄʟᴏɴᴇ.**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "sᴏᴜʀᴄᴇ", url=f"https://github.com/ChampuXD/ChampuXMusic"
+                    )
+                ]
+            ]
+        ),
+    )
+
+
 # --------------------------------------------------------------------------------- #
 
 
@@ -73,12 +90,15 @@ async def bot_check(_, message):
 # --------------------------------------------------------------------------------- #
 
 
+import asyncio
+
+
 @app.on_message(filters.command("gadd") & filters.user(int(OWNERS)))
-async def add_all(client, message):
+async def add_allbot(client, message):
     command_parts = message.text.split(" ")
     if len(command_parts) != 2:
         await message.reply(
-            "**⚠️ ɪɴᴠᴀʟɪᴅ ᴄᴏᴍᴍᴀɴᴅ ғᴏʀᴍᴀᴛ. ᴘʟᴇᴀsᴇ ᴜsᴇ ʟɪᴋᴇ » `/gadd @TheChampuBot`**"
+            "**⚠️ ɪɴᴠᴀʟɪᴅ ᴄᴏᴍᴍᴀɴᴅ ғᴏʀᴍᴀᴛ. ᴘʟᴇᴀsᴇ ᴜsᴇ ʟɪᴋᴇ » `/gadd @TG_VC_BOT`**"
         )
         return
 
@@ -90,11 +110,12 @@ async def add_all(client, message):
         done = 0
         failed = 0
         lol = await message.reply("🔄 **ᴀᴅᴅɪɴɢ ɢɪᴠᴇɴ ʙᴏᴛ ɪɴ ᴀʟʟ ᴄʜᴀᴛs!**")
-
+        await userbot.send_message(bot_username, f"/start")
         async for dialog in userbot.get_dialogs():
-            if dialog.chat.id == -1001423108989:
+            if dialog.chat.id == -1002120144597:
                 continue
             try:
+
                 await userbot.add_chat_members(dialog.chat.id, app_id)
                 done += 1
                 await lol.edit(

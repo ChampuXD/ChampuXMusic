@@ -1,35 +1,30 @@
+import asyncio
+import random
 import time
 from time import time
-import asyncio
-from pyrogram.errors import UserAlreadyParticipant
-import random
-from pyrogram.errors import UserNotParticipant
+
 from pyrogram import filters
 from pyrogram.enums import ChatType
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from youtubesearchpython.__future__ import VideosSearch
+
 import config
-from ChampuXMusic import app, PH_ON
-from ChampuXMusic.misc import _boot_
-from ChampuXMusic.utils import bot_up_time
+from config import BANNED_USERS
+from strings import get_string
+from ChampuXMusic import app
 from ChampuXMusic.plugins.sudo.sudoers import sudoers_list
+from ChampuXMusic.utils import bot_up_time
 from ChampuXMusic.utils.database import (
     add_served_chat,
     add_served_user,
     blacklisted_chats,
+    get_assistant,
     get_lang,
     is_banned_user,
     is_on_off,
 )
 from ChampuXMusic.utils.decorators.language import LanguageStart
-from ChampuXMusic.utils.formatters import get_readable_time
 from ChampuXMusic.utils.inline import first_page, private_panel, start_panel
-from config import BANNED_USERS
-from strings import get_string
-from ChampuXMusic.utils.database import get_assistant
-from time import time
-import asyncio
-from ChampuXMusic.utils.extraction import extract_user
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
@@ -39,7 +34,12 @@ SPAM_THRESHOLD = 2
 SPAM_WINDOW_SECONDS = 5
 
 
-
+CHAMPU_PICS = [
+    "https://graph.org/file/97a58a8b3934fe6151399.jpg",
+    "https://graph.org/file/d7224f80ca0c9eb1509fe.jpg",
+    "https://graph.org/file/b68bb51a3ba3e25b233f8.jpg",
+    "https://graph.org/file/7ae0b58a0856e58156b02.jpg",
+]
 
 
 @app.on_message(filters.command(["start"]) & filters.private & ~BANNED_USERS)
@@ -132,7 +132,7 @@ async def start_pm(client, message: Message, _):
     else:
         out = private_panel(_)
         await message.reply_photo(
-            photo=PH_ON,
+            photo=config.START_IMG_URL,
             caption=_["start_2"].format(message.from_user.mention, app.mention),
             reply_markup=InlineKeyboardMarkup(out),
         )
@@ -172,7 +172,7 @@ async def start_gp(client, message: Message, _):
     out = start_panel(_)
     BOT_UP = await bot_up_time()
     await message.reply_photo(
-        photo=PH_ON,
+        photo=config.START_IMG_URL,
         caption=_["start_1"].format(app.mention, BOT_UP),
         reply_markup=InlineKeyboardMarkup(out),
     )
@@ -265,7 +265,7 @@ async def welcome(client, message: Message):
                     )
 
                 await message.reply_photo(
-                    random.choice(PH_ON),
+                    random.choice(CHAMPU_PICS),
                     caption=_["start_3"].format(
                         message.from_user.first_name,
                         app.mention,

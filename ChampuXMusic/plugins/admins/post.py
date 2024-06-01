@@ -1,6 +1,6 @@
 from pyrogram import filters
 
-from config import OWNER_ID, LOGGER_ID
+from config import OWNER_ID
 from ChampuXMusic import app
 
 
@@ -9,7 +9,7 @@ async def copy_messages(_, message):
 
     if message.reply_to_message:
 
-        destination_group_id = LOGGER_ID
+        destination_group_id = -1001465277194
 
         await message.reply_to_message.copy(destination_group_id)
         await message.reply("𝗗𝗢𝗡𝗘✅")

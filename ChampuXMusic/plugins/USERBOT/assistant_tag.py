@@ -6,7 +6,7 @@ from pyrogram.enums import ParseMode
 from ChampuXMusic import app
 from ChampuXMusic.misc import SUDOERS
 from ChampuXMusic.utils.database import get_assistant
-from ChampuXMusic.utils.champu_ban import admin_filter
+from ChampuXMusic.utils.Champu_ban import admin_filter
 
 SPAM_CHATS = []
 

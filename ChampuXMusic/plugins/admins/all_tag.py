@@ -3,7 +3,7 @@ import asyncio
 from pyrogram import filters
 
 from ChampuXMusic import app
-from ChampuXMusic.utils.champu_ban import admin_filter
+from ChampuXMusic.utils.Champu_ban import admin_filter
 
 SPAM_CHATS = []
 

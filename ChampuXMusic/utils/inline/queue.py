@@ -81,7 +81,7 @@ def aq_markup(_, chat_id):
         [
             InlineKeyboardButton(
                 text="๏ ᴍᴏʀᴇ ๏",
-                url="https://t.me/Champu_creators",
+                url="https://t.me/FenuBots",
             ),
         ],
     ]
@@ -93,7 +93,7 @@ def queuemarkup(_, vidid, chat_id):
     buttons = [
         [
             InlineKeyboardButton(
-                text=_["S_B_3"],
+                text=_["S_B_5"],
                 url=f"https://t.me/{app.username}?startgroup=true",
             ),
         ],
@@ -116,7 +116,7 @@ def queuemarkup(_, vidid, chat_id):
         [
             InlineKeyboardButton(
                 text="๏ ᴍᴏʀᴇ ๏",
-                url="https://t.me/Champu_creators",
+                url="https://t.me/FenuBots",
             ),
         ],
     ]

@@ -8,7 +8,7 @@ from PIL import Image, ImageEnhance
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from config import BANNED_USERS, PING_IMG_URL
+from config import BANNED_USERS
 from ChampuXMusic import app
 from ChampuXMusic.core.call import Champu
 from ChampuXMusic.utils import bot_sys_stats
@@ -73,6 +73,7 @@ async def ping_com(client, message: Message, _):
         user_command_count[user_id] = 1
         user_last_message_time[user_id] = current_time
 
+    PING_IMG_URL = "https://telegra.ph/file/30127eafe764b7ca80576.jpg"
     captionss = "**🥀ᴘɪɴɢɪɴɢ ᴏᴜʀ sᴇʀᴠᴇʀ ᴡᴀɪᴛ.**"
     response = await message.reply_photo(PING_IMG_URL, caption=(captionss))
     await asyncio.sleep(1)
@@ -103,14 +104,14 @@ async def ping_com(client, message: Message, _):
             [
                 [
                     InlineKeyboardButton(
-                        text=_["S_B_3"],
+                        text=_["S_B_5"],
                         url=f"https://t.me/{app.username}?startgroup=true",
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        text="✦ ᴄʜᴧᴍᴘᴜ ✦",
-                        url=f"https://t.me/TheChampu",
+                        text="✦ ɢʀᴏᴜᴘ ✦",
+                        url=f"https://t.me/FenuZone",
                     ),
                     InlineKeyboardButton(
                         text="✧ ᴍᴏʀᴇ ✧",

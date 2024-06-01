@@ -5,7 +5,7 @@ from time import time
 from pyrogram import filters
 
 from ChampuXMusic import app
-from ChampuXMusic.utils.champu_ban import admin_filter
+from ChampuXMusic.utils.Champu_ban import admin_filter
 
 # Define a dictionary to track the last message timestamp for each user
 user_last_message_time = {}
